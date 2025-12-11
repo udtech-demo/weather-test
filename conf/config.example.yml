@@ -1,0 +1,35 @@
+# Project:
+project_name: "test-project"
+
+# Environment:
+env: "local"                        # [local, dev, stage, prod]
+server_name: "weather-data-aggregator-service"        # server name
+current_domain: "127.0.0.1:8787"    # for generate links...
+server_timezone: "America/New_York" # for return time in needed timezone
+
+# HTTP settings:
+http:
+  port: ":8787"
+
+
+# --- --- --- Credentials to local resources --- --- ---
+# Database settings:
+db:
+  host: "localhost"
+  port: ":5454"
+  weather: "admin"
+  pass: "12345"
+  name: "gbc"
+
+# Redis settings:
+rdb:
+  host: "localhost"
+  port: ":6363"
+  pwd: "12345"
+  db: "1"
+
+open_weather:
+  key: ""
+
+weather_api:
+  key: ""

@@ -1,0 +1,26 @@
+version: "3"
+
+networks:
+  loki:
+
+services:
+  postgres:
+    image: postgres:14.1-alpine
+#    volumes:
+#      - ./postgres_data:/var/lib/postgresql/data # if you need to store POSTGRES data outside the container # Make postgres_data folder in proj
+    ports:
+      - '5454:5432'
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: gbc
+    restart: unless-stopped
+
+  cache:
+    image: redis:6.2-alpine
+#    volumes:
+#      - ./redis_data:/data # if you need to store REDIS data outside the container # Make redis_data folder in proj
+    ports:
+      - '6363:6379'
+    command: redis-server --requirepass '12345'
+    restart: unless-stopped

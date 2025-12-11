@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS cities (
+    id UUID PRIMARY KEY UNIQUE NOT NULL DEFAULT UUID_GENERATE_V4(),
+    name TEXT NOT NULL UNIQUE,
+    enabled BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+INSERT INTO cities (name)
+VALUES
+    ('Prague'),
+    ('London'),
+    ('NewYork')
+ON CONFLICT (name) DO NOTHING;
